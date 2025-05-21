@@ -19,7 +19,10 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    outDir: "dist", // ✅ Explicitly tell Vite to output to 'dist' for Vercel
-    emptyOutDir: true, // optional: cleans the folder before building
+    outDir: "dist",
+    emptyOutDir: true,
+    rollupOptions: {
+      external: ['@vercel/analytics/react'],
+    },
   },
 }));
